@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-cyan-400: #00f0ff;
+  --color-cyan-500: #00c3ff;
+  --color-cyan-900: #003b4d;
+  --color-magenta-500: #ff003c;
+  --color-magenta-600: #d60032;
+  --color-yellow-400: #fcee0a;
+}
+
+@layer utilities {
+  .animate-glitch-1 {
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+  }
+  .animate-glitch-2 {
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  }
+  .crt-overlay {
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+  40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+  80% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, 1px); }
+  100% { clip-path: inset(30% 0 50% 0); transform: translate(1px, -1px); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
+  20% { clip-path: inset(30% 0 20% 0); transform: translate(-2px, 1px); }
+  40% { clip-path: inset(70% 0 10% 0); transform: translate(2px, 2px); }
+  60% { clip-path: inset(20% 0 50% 0); transform: translate(-2px, -2px); }
+  80% { clip-path: inset(50% 0 30% 0); transform: translate(1px, 1px); }
+  100% { clip-path: inset(5% 0 80% 0); transform: translate(-1px, -1px); }
+}
+
+body {
+  background-color: #050505;
+  color: #e0e0e0;
+  cursor: none; /* Hide default cursor for custom cursor */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+  border-left: 1px solid rgba(0, 240, 255, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: #00f0ff;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff003c;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
